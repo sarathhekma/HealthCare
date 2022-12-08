@@ -3,12 +3,12 @@ pipeline {
    stages{
        stage('Build Docker Image'){
         steps{
-          sh "docker build -t helloworldapp ./HealthCare "
+          sh "docker build ./HealthCare -t helloworldapp"
          }
        }  	  
 	  stage('DockerHub Push'){
        steps{
-         docker run -p 8080:80 helloworldapp
+         sh "docker run -d -p 8080:80 helloworldapp"
         }
       }     
 post {  
