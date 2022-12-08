@@ -3,7 +3,7 @@ pipeline {
    stages{
       stage('Build Docker Image'){
         steps{
-          sh "docker build -t helloworldapp ."
+          sh "docker build -t sarath724/helloworldapp ."
          }
         } 
       stage('DockerHub Push'){
@@ -12,7 +12,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     sh "docker login --username=${user} --password=${pass}"
                     sh "docker push ${user}/helloworldapp:latest"
-}
+                    }
         }
        }	  
 	    stage('DockerHub Run'){
