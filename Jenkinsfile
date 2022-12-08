@@ -13,11 +13,11 @@ pipeline {
              sh "docker push  sarath724/helloworldapp"
         }
       } 	  
-	   stage('DockerHub Push'){
+	    stage('DockerHub Push'){
        steps{
          sh "docker run -d -p 8081:80 helloworldapp"
         }
-      }  
+       }  
       stage('postbuild')
         {
             steps
@@ -36,5 +36,7 @@ pipeline {
 		    //body: "Check console output at '${env.BUILD_URL}' "
 			}
 			}
+      }
  }
+}
 }
