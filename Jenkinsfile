@@ -24,7 +24,7 @@ pipeline {
 			success
 			{
 			echo 'post section'
-			mail to: 'sarath.s@3ktechnologies.com',
+			mail to: 'saivijayadasami2018@gmail.com',
 		    subject: "Job Success:  '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 		    body: "Check console output at '${env.BUILD_URL}' "
 			}
