@@ -1,18 +1,18 @@
 pipeline {
   agent any
    stages{
-       stage('Build Docker Image'){
+      stage('Build Docker Image'){
         steps{
           sh "docker build -t helloworldapp ."
          }
-       } 
-       stage('DockerHub Push')  {
+        } 
+      stage('DockerHub Push'){
         steps{
-        withCredentials([String(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]){
+            withCredentials([String(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]){
              sh "docker login -u sarath724 -p Saipatham724#"
              sh "docker push  sarath724/helloworldapp"
         }
-      } 	  
+       } 	  
 	    stage('DockerHub Push'){
        steps{
          sh "docker run -d -p 8081:80 helloworldapp"
