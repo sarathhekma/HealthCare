@@ -11,7 +11,8 @@ pipeline {
          sh "docker run -d -p 8080:80 helloworldapp"
         }
       }  
-     stage('post build'){	  
+     stage('post build'){
+        steps{	 
 		post {  
 		 success { 
 
@@ -30,5 +31,6 @@ pipeline {
 			  } 
 		}
     }
+	}
 }
 }
