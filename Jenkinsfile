@@ -3,7 +3,7 @@ pipeline {
    stages{
        stage('Build Docker Image'){
         steps{
-          sh "docker build ./HealthCare -t helloworldapp"
+          sh "docker build -t helloworldapp ."
          }
        }  	  
 	  stage('DockerHub Push'){
