@@ -5,8 +5,17 @@ pipeline {
         steps{
           sh "docker build -t helloworldapp ."
          }
-       }  	  
-	  stage('DockerHub Push'){
+       } 
+       stage('DockerHub Push')  {
+        steps{
+        withCredentials([String(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]){
+             sh "docker login -u sarath724 -p Saipatham724#"
+             sh "docker push  sarath724/helloworldapp"
+
+        }
+
+      } 	  
+	   stage('DockerHub Push'){
        steps{
          sh "docker run -d -p 8081:80 helloworldapp"
         }
@@ -24,9 +33,9 @@ pipeline {
 			success
 			{
 			echo 'post section'
-			mail to: 'saivijayadasami2018@gmail.com',
-		    subject: "Job Success:  '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-		    body: "Check console output at '${env.BUILD_URL}' "
+			//mail to: 'saivijayadasami2018@gmail.com',
+		    //subject: "Job Success:  '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+		    //body: "Check console output at '${env.BUILD_URL}' "
 			}
 			}
         }
