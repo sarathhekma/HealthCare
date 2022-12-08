@@ -13,7 +13,7 @@ pipeline {
              sh "docker push  sarath724/helloworldapp"
         }
        } 	  
-	    stage('DockerHub Push'){
+	    stage('DockerHub Run'){
        steps{
          sh "docker run -d -p 8081:80 helloworldapp"
         }
