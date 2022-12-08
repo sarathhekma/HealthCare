@@ -6,7 +6,7 @@ pipeline {
           sh "docker build -t helloworldapp ./HealthCare "
          }
        }  	  
-	  stage('DockerHub Push')     {
+	  stage('DockerHub Push') {
       steps{
          docker run -p 8080:80 helloworldapp
 
@@ -31,7 +31,6 @@ post {
           body: "Check console output at '${env.BUILD_URL}' for furthur details"
           
       } 
-}
 }
 }
 }
