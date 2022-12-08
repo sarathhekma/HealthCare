@@ -11,7 +11,7 @@ pipeline {
             
         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     sh "docker login --username=${user} --password=${pass}"
-                    sh "docker push username/helloworldapp:latest"
+                    sh "docker push ${user}/helloworldapp:latest"
 }
         }
        }	  
