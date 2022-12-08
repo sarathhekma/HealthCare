@@ -17,7 +17,7 @@ pipeline {
        }	  
 	    stage('DockerHub Run'){
        steps{
-         sh "docker run -d -p 8081:80 helloworldapp"
+         sh "docker run -d -p 8081:80 sarath724/helloworldapp"
         }
        }  
       stage('postbuild') {
