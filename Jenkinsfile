@@ -12,14 +12,14 @@ pipeline {
              sh "docker login -u sarath724 -p Saipatham724#"
              sh "docker push  sarath724/helloworldapp"
         }
-       } 	  
+        }
+       }	  
 	    stage('DockerHub Run'){
        steps{
          sh "docker run -d -p 8081:80 helloworldapp"
         }
        }  
-      stage('postbuild')
-        {
+      stage('postbuild') {
             steps
             {
                // input 'waiting for approval'
@@ -37,6 +37,5 @@ pipeline {
 			}
 			}
       }
- }
-}
+  }
 }
