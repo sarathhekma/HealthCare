@@ -8,10 +8,10 @@ pipeline {
         } 
       stage('DockerHub Push'){
         steps{
-            withCredentials([String(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]){
-             sh "docker login -u sarath724 -p Saipatham724#"
-             sh "docker push  sarath724/helloworldapp"
-        }
+            withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {                    
+              sh "docker login --username="sarath724" --password=Saipatham724#"
+              sh "docker push sarath724/helloworldapp:latest"
+          }
         }
        }	  
 	    stage('DockerHub Run'){
