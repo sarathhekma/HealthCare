@@ -11,9 +11,7 @@ pipeline {
         withCredentials([String(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]){
              sh "docker login -u sarath724 -p Saipatham724#"
              sh "docker push  sarath724/helloworldapp"
-
         }
-
       } 	  
 	   stage('DockerHub Push'){
        steps{
@@ -38,6 +36,5 @@ pipeline {
 		    //body: "Check console output at '${env.BUILD_URL}' "
 			}
 			}
-        }
-	}
+ }
 }
